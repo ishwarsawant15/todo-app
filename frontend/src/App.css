@@ -1,0 +1,266 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 64px 20px 80px;
+}
+
+.ledger {
+  width: 100%;
+  max-width: 560px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px 32px 24px;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+}
+
+.ledger-header-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ledger-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.ledger-tally {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 4px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.ledger-subtitle {
+  margin: 6px 0 28px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* --- Form --- */
+.todo-form {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 20px;
+  background: var(--surface-raised);
+}
+
+.todo-form-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  padding: 6px 4px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.todo-form-input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+.todo-form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.todo-form-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.todo-form-select,
+.todo-form-date {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 7px;
+  padding: 7px 8px;
+  font-size: 13px;
+  font-family: var(--font-body);
+}
+
+.todo-form-submit {
+  margin-left: auto;
+  background: var(--accent);
+  color: #1c1406;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.todo-form-submit:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.todo-form-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* --- Filters --- */
+.filter-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.filter-pill {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-pill.is-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- List --- */
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 4px;
+  border-bottom: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  padding-left: 10px;
+  transition: opacity 0.15s ease;
+}
+
+.todo-row.priority-high {
+  border-left-color: var(--high);
+}
+.todo-row.priority-medium {
+  border-left-color: var(--medium);
+}
+.todo-row.priority-low {
+  border-left-color: var(--low);
+}
+
+.todo-row:last-child {
+  border-bottom: none;
+}
+
+.todo-checkbox {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.todo-row.is-done .todo-checkbox {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.todo-body {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.todo-title {
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.todo-row.is-done .todo-title {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.todo-due {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.todo-delete {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.todo-delete:hover {
+  color: var(--high);
+  background: rgba(217, 99, 74, 0.12);
+}
+
+/* --- Status messages --- */
+.state-message {
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.state-message.error {
+  color: var(--high);
+}
+
+.state-message.small {
+  padding: 8px 0 0;
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  .ledger {
+    padding: 24px 18px 18px;
+  }
+  .todo-form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .todo-form-submit {
+    margin-left: 0;
+  }
+}
